@@ -50,31 +50,30 @@ def isSummitLeagueTeam(boxscore):
 	return( extractTeam(boxscore) in summitLeagueTeamsList)
 
 def addToCSV(teamName,totals):
-	f=open("summitData/"+teamName+".txt", "a+")
+	f=open("summitRawData/"+teamName+".txt", "a+")
 	line = ','.join(totals)
 	#line = line[:-1]
-	f.write(line)
+	f.write(line + "\n")
 	f.close()
 
-def processLinks():		
+def processLinks():	
+		
 	links = extractBoxScoreLinks()
 	ct = 0
 	for link in links:
+		
 		soup = getSoup(link)
 		sauce = soup.find_all("div",class_="stats-fullbox clearfix")
 		
 		team1BXSC = getTeamBoxscore(1,sauce)
 		team2BXSC = getTeamBoxscore(2,sauce)
+		print("Processing: "+ extractTeam(team1BXSC) +" vs. "+ extractTeam(team2BXSC))
 		if isSummitLeagueTeam(team1BXSC):
-			print(extractTeam(team1BXSC))
-			print(extractTotalsRow(team1BXSC))
 			addToCSV(extractTeam(team1BXSC),extractTotalsRow(team1BXSC))
 		
-		if isSummitLeagueTeam(team2BXSC):
-			print(extractTeam(team2BXSC))
-			print(extractTotalsRow(team2BXSC))		
+		if isSummitLeagueTeam(team2BXSC):		
 			addToCSV(extractTeam(team2BXSC),extractTotalsRow(team2BXSC))
-		print("-------------------------")
-		
+
+	
 
 processLinks()
