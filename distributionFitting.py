@@ -77,7 +77,8 @@ def best_fit_distribution(data, bins=10, ax=None):
     return (best_distribution.name, best_params)
 
 def getStatsFromCSV(team):
-	fr = open("summitFormattedData/"+team+".txt","r")
+	#fr = open("summitFormattedData/"+team+".txt","r")
+	fr = open("summitFormattedPerSetData/"+team+".txt","r")
 	lines=fr.readlines()
 	lines.pop(-1)
 	newStats =[]
@@ -90,14 +91,16 @@ def getStatsFromCSV(team):
 	return newStats
 
 def logTeamsDistributions(team,distributions):
-	fw = open("summitStatDistributions/"+team+".txt","a+")
+	#fw = open("summitStatDistributions/"+team+".txt","a+")
+	fw = open("summitPerSetStatDistributions/"+team+".txt","a+")
 	for dist in distributions:
 		info = ",".join(dist)
 		fw.write(info+"\n")
 	fw.close()
 
 def appendStatDistributionInfo(team,infoTuple):
-	fw=open("summitStatDistributions/"+team+".txt","a+")
+	#fw=open("summitStatDistributions/"+team+".txt","a+")
+	fw=open("summitPerSetStatDistributions/"+team+".txt","a+")
 	info = []
 	info.append(infoTuple[0])
 	for param in infoTuple[1]:

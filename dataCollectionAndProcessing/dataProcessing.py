@@ -3,7 +3,8 @@ summitLeagueTeamsList = ['Oral Roberts','South Dakota State','North Dakota State
 
 def collectStats(team):
 	stats = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
-	file = open("summitRawData/"+team +".txt", "r") 
+	#file = open("summitRawData/"+team +".txt", "r") 
+	file = open("summitRawPerSetData/"+team +".txt", "r") 
 	data =  file.readlines()
 	for statLine in data:
 		statLine = statLine.strip()
@@ -16,7 +17,8 @@ def collectStats(team):
 	return stats
 
 def makeNewStatsFile(team,stats):
-	file = open("summitFormattedData/"+team+".txt","a+")
+	#file = open("summitFormattedData/"+team+".txt","a+")
+	file = open("summitFormattedPerSetData/"+team+".txt","a+")
 	for line in stats:
 		file.write(",".join(line) + "\n")
 	file.close()
