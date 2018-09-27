@@ -14,7 +14,7 @@ summitLeagueTeamsList = ['Oral Roberts','South Dakota State','North Dakota State
 def best_fit_distribution(data, bins=10, ax=None):
     """Model data by finding best fit distribution to data"""
     # Get histogram of original data
-    y, x = np.histogram(data, bins=bins, density=True)
+    y, x = np.histogram(data, bins= 'auto', density=True)
     x = (x + np.roll(x, -1))[:-1] / 2.0
 
     # Distributions to check
@@ -90,17 +90,11 @@ def getStatsFromCSV(team):
 		newStats.append(line)
 	return newStats
 
-def logTeamsDistributions(team,distributions):
-	#fw = open("summitStatDistributions/"+team+".txt","a+")
-	fw = open("summitPerSetStatDistributions/"+team+".txt","a+")
-	for dist in distributions:
-		info = ",".join(dist)
-		fw.write(info+"\n")
-	fw.close()
+
 
 def appendStatDistributionInfo(team,infoTuple):
 	#fw=open("summitStatDistributions/"+team+".txt","a+")
-	fw=open("summitPerSetStatDistributions/"+team+".txt","a+")
+	fw=open("summitTest/"+team+".txt","a+")
 	info = []
 	info.append(infoTuple[0])
 	for param in infoTuple[1]:
