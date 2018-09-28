@@ -2,40 +2,42 @@ from Team import Team
 import numpy as np
 import scipy.stats as st
 
+import scipy as sp
+
 class OralRoberts(Team):
 
 	def generateKills(self):
 		return (st.loglaplace.ppf(sp.random.uniform(),426901.5915468705,loc=-751933.6904347753,scale=751947.4404129663))
 
 	def generateHitErrors(self):
-		return (st.mielke.ppf(sp.random.uniform(),1.202778058467199,6.357926077132121,loc=3.2939572269777275,scale=3.7253632213321195))
+		return (st.gompertz.ppf(sp.random.uniform(),0.4092038344172457,loc=3.3299999997186607,scale=2.1151905360936194))
 
 	def generateHitAttempts(self):
-		return (st.foldcauchy.ppf(sp.random.uniform(),2.8444258124465147,loc=25.99432538869766,scale=2.8546599046285515))
+		return (st.vonmises_line.ppf(sp.random.uniform(),0.38283335274296393,loc=34.37499934718585,scale=2.665845681951714))
 
 	def generateHitEfficiency(self):
-		return (st.johnsonsu.ppf(sp.random.uniform(),-0.5471988650141528,1.0623906091480586,loc=0.049443132143705444,scale=0.022797760157466533))
+		return (st.recipinvgauss.ppf(sp.random.uniform(),0.09890323392174019,loc=-0.06066811950507461,scale=0.011506951820527002))
 
 	def generateAssists(self):
-		return (st.powerlognorm.ppf(sp.random.uniform(),3.569409065723762,0.006474637231807651,loc=-456.6758657405288,scale=472.31762695884777))
+		return (st.gengamma.ppf(sp.random.uniform(),3.5025397729809704,41.593559122649566,loc=-151.80336358619957,scale=160.12875786638722))
 
 	def generateAces(self):
-		return (st.dweibull.ppf(sp.random.uniform(),1.0880973555940552,loc=1.1436422679300264,scale=0.6832513394461852))
+		return (st.foldcauchy.ppf(sp.random.uniform(),1.4786562792775686,loc=0.24999999909918053,scale=0.508898189000853))
 
 	def generateServeErrors(self):
-		return (st.maxwell.ppf(sp.random.uniform(),loc=0.5397386055742939,scale=0.9285920215741081))
+		return (st.laplace.ppf(sp.random.uniform(),loc=2.0000000041317385,scale=0.4971956367185568))
 
 	def generateReceptionErrors(self):
-		return (st.semicircular.ppf(sp.random.uniform(),loc=1.1324867688434095,scale=0.9560005174625054))
+		return (st.fisk.ppf(sp.random.uniform(),3.079776662277532,loc=-0.046205810852082654,scale=1.047434544174652))
 
 	def generateDigs(self):
-		return (st.gennorm.ppf(sp.random.uniform(),0.8141333584124093,loc=13.32999999990493,scale=1.4191003971057037))
+		return (st.foldcauchy.ppf(sp.random.uniform(),6.871568959706369,loc=4.669999994934597,scale=1.2626538001213774))
 
 	def generateBlockSolo(self):
-		return (st.gilbrat.ppf(sp.random.uniform(),loc=-0.03867581725271682,scale=0.1265623167339466))
+		return (st.expon.ppf(sp.random.uniform(),loc=0.0,scale=0.237586206897))
 
 	def generateBlockAssists(self):
-		return (st.beta.ppf(sp.random.uniform(),2.260178116425948,2.0009713091707892,loc=-0.5939853511295894,scale=6.271007500157726))
+		return (st.johnsonsb.ppf(sp.random.uniform(),-0.19800625207571357,1.168501753735153,loc=-1.1834221998757841,scale=7.30555450117952))
 
 	def generateBlockErrors(self):
 		return (st.t.ppf(sp.random.uniform(),2.4814782484995117,loc=0.3726438971806972,scale=0.22226750591856928))
@@ -44,7 +46,7 @@ class OralRoberts(Team):
 		return (st.dgamma.ppf(sp.random.uniform(),0.27526604234940877,loc=0.32999999999999996,scale=0.30265478687076264))
 
 	def generatePoints(self):
-		return (st.mielke.ppf(sp.random.uniform(),5.454681395326389,21.714422244392214,loc=-0.17538594616397377,scale=19.161470546128157))
+		return (st.gumbel_l.ppf(sp.random.uniform(),loc=17.716635504989682,scale=2.4462866857075793))
 
 	def simulateStatLine(self):
 		statLine=[]

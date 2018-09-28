@@ -16,4 +16,5 @@ class Team(object):
 	def addLoss(self):
 		self.losses += 1
 	
+	
 

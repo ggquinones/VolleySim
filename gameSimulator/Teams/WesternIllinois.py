@@ -2,37 +2,39 @@ from Team import Team
 import numpy as np
 import scipy.stats as st
 
+import scipy as sp
+
 class WesternIllinois(Team):
 
 	def generateKills(self):
-		return (st.burr.ppf(sp.random.uniform(),10.908407214580661,0.5249954618539499,loc=0.0026720283236863485,scale=11.862862304712063))
+		return (st.exponnorm.ppf(sp.random.uniform(),0.42979500547744476,loc=9.906887242456603,scale=2.0697081775929322))
 
 	def generateHitErrors(self):
-		return (st.burr.ppf(sp.random.uniform(),28.221195415546816,0.04351681226076361,loc=2.6247514342326532,scale=3.890886791851254))
+		return (st.gompertz.ppf(sp.random.uniform(),0.11760672971554662,loc=2.6699999873025733,scale=1.1623341601789143))
 
 	def generateHitAttempts(self):
-		return (st.genextreme.ppf(sp.random.uniform(),0.7279355176179068,loc=34.99316119912194,scale=5.792054294085264))
+		return (st.powerlaw.ppf(sp.random.uniform(),2.0735464805199113,loc=20.968703400637903,scale=21.70129660018175))
 
 	def generateHitEfficiency(self):
-		return (st.fisk.ppf(sp.random.uniform(),2.5110106648178045,loc=0.01217064610084009,scale=0.02758481108717045))
+		return (st.beta.ppf(sp.random.uniform(),0.7282885529844242,2.0858208905596998,loc=0.019999999999999997,scale=0.09464084929579927))
 
 	def generateAssists(self):
 		return (st.dweibull.ppf(sp.random.uniform(),1.4819232097176567,loc=10.215605177243809,scale=1.8867113401282982))
 
 	def generateAces(self):
-		return (st.bradford.ppf(sp.random.uniform(),5.07205950264985,loc=0.3299999999951898,scale=1.9566392615128663))
+		return (st.truncexpon.ppf(sp.random.uniform(),1.1351085338125135,loc=0.3297789942339232,scale=1.6916640696885987))
 
 	def generateServeErrors(self):
-		return (st.dgamma.ppf(sp.random.uniform(),1.792531764580098,loc=1.8443020270083952,scale=0.264563759130207))
+		return (st.foldcauchy.ppf(sp.random.uniform(),2.813028215730471,loc=0.6699999984500669,scale=0.3909007984560715))
 
 	def generateReceptionErrors(self):
-		return (st.triang.ppf(sp.random.uniform(),0.3058094230922519,loc=-0.10391138707788608,scale=4.427303620441757))
+		return (st.johnsonsb.ppf(sp.random.uniform(),0.4716946436833792,0.8439135259804513,loc=0.05498668189502057,scale=4.352768341865771))
 
 	def generateDigs(self):
-		return (st.triang.ppf(sp.random.uniform(),0.7043045824862135,loc=5.138199142464936,scale=19.212995634708474))
+		return (st.burr.ppf(sp.random.uniform(),15.713022302514958,0.12088571716934121,loc=5.40732575197367,scale=15.730329405783209))
 
 	def generateBlockSolo(self):
-		return (st.genlogistic.ppf(sp.random.uniform(),0.35855540183683665,loc=0.6738569159929343,scale=0.09571180311655693))
+		return (st.tukeylambda.ppf(sp.random.uniform(),1.2469531227319564,loc=0.40000154189480586,scale=0.4987831717633302))
 
 	def generateBlockAssists(self):
 		return (st.gennorm.ppf(sp.random.uniform(),0.38995306211685987,loc=3.329999999990748,scale=0.06356499509062455))
@@ -41,10 +43,10 @@ class WesternIllinois(Team):
 		return (st.ncx2.ppf(sp.random.uniform(),1.8690859544350085,0.8964254538712773,loc=-1.0462686305408917e-30,scale=0.19199538085230133))
 
 	def generateBallHandlingErrors(self):
-		return (st.gausshyper.ppf(sp.random.uniform(),0.45490192237673976,1.4525034188445871,3.1053289571032963,1.539637578425019,loc=-4.470903938480372e-32,scale=1.1361366067283347))
+		return (st.wald.ppf(sp.random.uniform(),loc=-0.07812385387314823,scale=0.3179154181541082))
 
 	def generatePoints(self):
-		return (st.dweibull.ppf(sp.random.uniform(),1.2841889335037266,loc=13.963755406523253,scale=2.2979126926136133))
+		return (st.gumbel_l.ppf(sp.random.uniform(),loc=15.360074059006038,scale=2.642504287785417))
 
 	def simulateStatLine(self):
 		statLine=[]
